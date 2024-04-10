@@ -48,19 +48,25 @@
                         $_SESSION['user'] = getUserById($reg_user_id);
 
                         // if user is admin, redirect to admin area
-                        if ( in_array($_SESSION['user']['role'], ["Admin", "Chef"])) {
+                        if ( in_array($_SESSION['user']['role'], ["Admin"])) {
                                 $_SESSION['message'] = "You are now logged in";
                                 // redirect to admin area
                                 header('location: ' . BASE_URL . 'admin/dashboard.php');
                                 exit(0);
+                                
+                        }elseif ( in_array($_SESSION['user']['role'], ["Chef"])) {
+                                        $_SESSION['message'] = "You are now logged in";
+                                        // redirect to chef area
+                                        header('location: ' . BASE_URL . 'chef/dashboard.php');
+                                        exit(0);
                         } else {
                                 $_SESSION['message'] = "You are now logged in";
                                 // redirect to public area
                                 header('location: index.php');                          
                                 exit(0);
                         }
-                }
-        }
+                }}
+        
 
         // LOG USER IN
         if (isset($_POST['login_btn'])) {
@@ -82,10 +88,15 @@
                                 $_SESSION['user'] = getUserById($reg_user_id); 
 
                                 // if user is admin, redirect to admin area
-                                if ( in_array($_SESSION['user']['role'], ["Admin", "Chef"])) {
+                                if ( in_array($_SESSION['user']['role'], ["Admin"])) {
                                         $_SESSION['message'] = "You are now logged in";
                                         // redirect to admin area
-                                        header('location: ' . BASE_URL . '/admin/dashboard.php');
+                                        header('location: ' . BASE_URL . 'admin/dashboard.php');
+                                        exit(0);
+                                }elseif ( in_array($_SESSION['user']['role'], ["Chef"])) {
+                                        $_SESSION['message'] = "You are now logged in";
+                                        // redirect to chef area
+                                        header('location: ' . BASE_URL . 'chef/dashboard.php');
                                         exit(0);
                                 } else {
                                         $_SESSION['message'] = "You are now logged in";
@@ -96,8 +107,8 @@
                         } else {
                                 array_push($errors, 'Wrong credentials');
                         }
-                }
-        }
+                }}
+        
         // escape value from form
         function esc(String $value)
         {       

@@ -52,7 +52,7 @@
                 <!-- Display records from DB-->
                 <div class="table-div">
                         <!-- Display notification message -->
-                        <?php include(ROOT_PATH . '/includes/messages.php') ?>
+                        <?php include(ROOT_PATH . '/admin/includes/messages.php') ?>
 
                         <?php if (empty($admins)): ?>
                                 <h1>No admins in the database.</h1>

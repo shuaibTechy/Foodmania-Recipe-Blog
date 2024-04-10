@@ -8,9 +8,9 @@
                         
                         <ul>
                           <li><a class="active" href="index.php">Home</a></li>
-                          <li><a href="#news">About Us</a></li>
-                          <li><a href="#contact">Your Recipe</a></li>
-                          <li><a href="#about">Contact</a></li>
+                          <li><a href="#about">About Us</a></li>
+                          <li><a href="#recipe">Your Recipe</a></li>
+                          <li><a href="#contact">Contact</a></li>
                         </ul>
                 </div>
 </div>

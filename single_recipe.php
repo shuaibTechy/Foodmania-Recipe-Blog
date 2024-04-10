@@ -1,8 +1,8 @@
 <?php  include('config.php'); ?>
 <?php  include('includes/public_functions.php'); ?>
 <?php 
-        if (isset($_GET['recipe-slug'])) {
-                $recipe = getRecipe($_GET['recipe-slug']);
+        if (isset($_GET['slug'])) {
+                $recipe = getRecipe($_GET['slug']);
         }
         $category = getAllCategories();
 ?>
@@ -12,7 +12,21 @@
 <body>
 <div class="container">
         <!-- Navbar -->
-                <?php include( ROOT_PATH . '/includes/nav.php'); ?>
+        <div>
+ <div class="logo_div">
+ <img src="static\images\foodmania_logo.png" alt="" id="logo">
+ </div>
+ 
+ <div class="navbar">
+                        
+                        <ul>
+                          <li><a class="active" ><input type="text" placeholder="Search Recipe..">Search Recipe</a></li>
+                          <li><a href="#about">About Us</a></li>
+                          <li><a href="index.php">Home</a></li>
+                          <li><a href="#contact">Contact</a></li>
+                        </ul>
+                </div>
+</div>
         <!-- // Navbar -->
         
         <div class="content" >
@@ -20,7 +34,7 @@
                 <div class="post-wrapper">
                         <!-- full post div -->
                         <div class="full-post-div">
-                        <?php if ($recipe['published'] == false): ?>
+                        <?php if (isset($recipe['published']) == false): ?>
                                 <h2 class="post-title">Sorry... This post has not been published</h2>
                         <?php else: ?>
                                 <h2 class="post-title"><?php echo $recipe['title']; ?></h2>

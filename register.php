@@ -20,8 +20,9 @@
                         <input type="email" name="email" value="<?php echo $email ?>" placeholder="Email">
                         <label for="">Select role</label>
                         <select name="role" id="select">
-                                        <option value="Chef">I am a Chef</option><br>
-                                        <option value="Admin">I am an Admin</option>
+                                        <!-- <option value="">Select a role</option><br> -->
+                                        <option value="Chef">Chef</option>
+                                        <option value="Admin">Admin</option>
                         </select><br>
                         <input type="password" name="password_1" placeholder="Password">
                         <input type="password" name="password_2" placeholder="Password confirmation">

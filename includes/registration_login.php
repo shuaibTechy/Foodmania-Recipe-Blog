@@ -9,14 +9,16 @@
                 // receive all input values from the form
                 $username = esc($_POST['username']);
                 $email = esc($_POST['email']);
+                $role = esc($_POST['role']);
                 $password_1 = esc($_POST['password_1']);
                 $password_2 = esc($_POST['password_2']);
 
                 // form validation: ensure that the form is correctly filled
-                if (empty($username)) {  array_push($errors, "Uhmm...We gonna need your username"); }
-                if (empty($email)) { array_push($errors, "Oops.. Email is missing"); }
-                if (empty($password_1)) { array_push($errors, "uh-oh you forgot the password"); }
-                if ($password_1 != $password_2) { array_push($errors, "The two passwords do not match");}
+                if (empty($username)) {  array_push($errors, "Input your username"); }
+                if (empty($email)) { array_push($errors, "You forgot to type your email"); }
+                if (empty($role)) { array_push($errors, "Please select your role"); }
+                if (empty($password_1)) { array_push($errors, "You will need to input your password"); }
+                if ($password_1 != $password_2) { array_push($errors, "The two password must be same!");}
 
                 // Ensure that no user is registered twice. 
                 // the email and usernames should be unique
@@ -37,9 +39,32 @@
                 // register user if there are no errors in the form
                 if (count($errors) == 0) {
                         $password = md5($password_1);//encrypt the password before saving in the database
-                        $query = "INSERT INTO users (username, email, password, created_at, updated_at) 
-                                          VALUES('$username', '$email', '$password', now(), now())";
+                        
+
+                        
+
+                        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                        $enumValue = $_POST['role']; // Replace with your form element name
+
+                        if (in_array($enumValue, ['Chef', 'Admin'])) {
+                        // Perform database insertion with sanitized $enumValue
+                        $query = "INSERT INTO users (username, email, role, password, created_at, updated_at) 
+                                          VALUES('$username', '$email', '$enumValue','$password', now(), now())";
                         mysqli_query($conn, $query);
+
+
+                        // $sql = "INSERT INTO users (role, username) VALUES (?,?)";
+                        // $stmt = $conn->prepare($sql);
+                        // $stmt->execute([$enumValue], [$query]);
+                        // mysqli_query($conn, $query, );
+
+                        echo "Data inserted successfully!";
+                        } else {
+                        echo "Invalid enum value submitted.";
+                        }
+                        }
+
+
 
                         // get id of created user
                         $reg_user_id = mysqli_insert_id($conn); 

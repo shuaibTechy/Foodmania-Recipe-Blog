@@ -1,0 +1,97 @@
+/* NAVBAR */
+.navbar {
+    margin: 0px;
+overflow: hidden;
+    background-color: #5d645d;
+border-radius: 0px 0px 6px 6px;
+padding-bottom: 0px;
+}
+.navbar ul {
+list-style-type: none;
+float: right;
+}
+.navbar ul li {
+float: left;
+font-family: 'Noto Serif', serif;
+}
+.navbar ul li a {
+display: block;
+color: white;
+text-align: center;
+padding: 0px 30px;
+text-decoration: none;
+}
+.navbar ul li a:hover {
+color: #B9E6F2;
+background-color: #334F5C;
+}
+
+/* LOGO */
+
+#logo{
+float: left; 
+    padding-bottom: 10px;
+    height: 60px;
+    width: 100px;
+}
+
+
+
+body {
+    background-image: url('../images/cck5btal.png'); /* Replace with your background image path */
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+  }
+
+  form {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 15px;
+  }
+
+  input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .addrecipe h3{
+    position: relative;
+    margin-left: 550px;
+
+  }
+
+  .user-info{
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 15px;
+    font-size: large;
+    color: aliceblue;
+
+  }
+  .logout-btn{
+    
+    color: aliceblue;
+
+  }

@@ -1,40 +1,46 @@
 <?php  include('../config.php'); ?>
 <?php  include(ROOT_PATH . '/admin/includes/admin_functions.php'); ?>
-<?php include(ROOT_PATH . '/admin/includes/header.php'); ?>
+<?php include(ROOT_PATH . '/chef/includes/header.php'); ?>
+
 <!-- Get all categories from DB -->
 <?php //$categorys = getAllcategorys();      ?>
         <title>Chef | Create Recipe</title>
 
         <?php
+ 
 
 
- $chefname=$_POST['chefname'];
- $Title=$_POST['title'];
- $Slug=$_POST['slug'];
- $Image=$_POST['image'];
- $Description=$_POST['description'];
 
-    if(empty($_POST["chefname"]) || empty($_POST["category"]) || empty($_POST["RecipeName"]) || empty($_POST["Ingredients"]) || empty($_POST["Directions"]))
+ $chefname = isset($_POST['chefname']) ? $_POST['chefname'] : "";
+ $title = isset($_POST['title']) ? $_POST['title'] : "";
+ $slug = isset($_POST['slug']) ? $_POST['slug'] : "";
+ $image= isset($_POST['image']) ? $_POST['image'] : "";
+ $description = isset($_POST['description']) ? $_POST['description'] : "";
+
+
+    if(empty($_POST["chefname"]) || empty($_POST["title"]) || empty($_POST["slug"]) || empty($_POST["image"]) || empty($_POST["description"]))
     {
-        echo "All fields are required.";
+        echo "";
     }
        
     else
     {   
-        $sql = "INSERT INTO recipemethod (chefname,category,RecipeName,Ingredients,Directions) VALUES ('$chefname','$category','$RecipeName','$Ingredients','$Directions')";
-        $result = mysqli_query($db, $sql);
+        $sql = "INSERT INTO recipe (chefname,title, slug, image, description) VALUES ('$chefname','$title','$slug','$image','$description')";
+        $result = mysqli_query($conn, $sql);
 
         if($result)
         {
             echo "Successfully";
-            header("Location: home.html");
-        }
-        else
+            header('location: ' . BASE_URL . 'chef/dashboard.php');
+           
+        }else{}
         {
             echo "Something Went Wrong!";
-            header("Location: addRecipe.html");
+            header('location: ' . BASE_URL . 'chef/create_recipe.php');
+            
         }
     }
+
 ?>
     <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
@@ -90,15 +96,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
 </head>
 <body>
 <?php include(ROOT_PATH . '/chef/includes/navbar.php') ?>
-    <h1>Welcome to Foodmania Blog :</h1>
+
     <br>
+    <div class ="addrecipe">
     <h3>Add a New Recipe here</h3>
-    
-        <form method="post" action="addRecipe.php">
+    </div>
+    <div>
+        <form method="post" action="<?php echo BASE_URL . 'chef/create_recipe.php'; ?>">
             <label>Chef Name:</label>
             <input type="text" name="chefname" /><br><br>
             <label>Title:&nbsp;&nbsp;</label>
-            <input type="text" name="titley" /> <br><br>
+            <input type="text" name="title" /> <br><br>
             <label>Slug:&nbsp;&nbsp;&nbsp;&nbsp;</label>
             <input type="text" name="slug" /> <br><br>
             <label>Image:&nbsp;&nbsp;&nbsp;</label>
@@ -110,5 +118,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
             &nbsp;&nbsp;&nbsp;&nbsp;
             <input type="button" value="Reset" />
         </form>
+
+    </div>
+
+    </div>
+                
 </body>
 </html> 

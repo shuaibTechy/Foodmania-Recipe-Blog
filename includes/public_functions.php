@@ -95,7 +95,7 @@ function getCategoryNameById($id)
 function getRecipe($slug){
         global $conn;
         // Get single recipe slug
-        $recipe_slug = $_GET['recipe-slug'];
+        $recipe_slug = $_GET['slug'];
         $sql = "SELECT * FROM recipe WHERE slug='$recipe_slug' AND published=true";
         $result = mysqli_query($conn, $sql);
 

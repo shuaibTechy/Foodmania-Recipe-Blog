@@ -1,12 +1,12 @@
 <?php 
 // Post variables
-$recipe_id = 0;
-$isEditingRecipe = false;
+$user_id = 0;
+// $isEditingRecipe = false;
 $published = 0;
 $title = "";
-$recipe_slug = "";
-$body = "";
-$featured_image = "";
+$slug = "";
+$description = "";
+$image = "";
 $recipe_category = "";
 
 /* - - - - - - - - - - 

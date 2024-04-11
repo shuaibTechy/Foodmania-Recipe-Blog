@@ -39,7 +39,7 @@ function getPublishedRecipes() {
 //this fetches the category of the recipe
 function getRecipeCategory($recipe_id){
         global $conn;
-        $sql = "SELECT * FROM category WHERE id=(SELECT category_id FROM recipe_category WHERE recipe_id=$recipe_id) LIMIT 1";
+        $sql = "SELECT * FROM category WHERE cat_id=(SELECT id FROM recipe_category WHERE recipe_id=$recipe_id) LIMIT 1";
         $result = mysqli_query($conn, $sql);
         $category = mysqli_fetch_assoc($result);
         return $category;
@@ -78,12 +78,14 @@ function getPublishedRecipesByCategory($category_id) {
 
 //Returns category name by category id
 function getCategoryNameById($id)
+
+
 {
         global $conn;
-        $sql = "SELECT name FROM category WHERE id=$id";
+        $sql = "SELECT cat_name FROM category WHERE cat_id=$id";
         $result = mysqli_query($conn, $sql);
         $category = mysqli_fetch_assoc($result);
-        return $category['name'];
+        return $category['cat_name'];
 }
 
 
@@ -93,15 +95,17 @@ function getCategoryNameById($id)
 //Returns a single post
 
 function getRecipe($slug){
+      $search = "";
+        
         global $conn;
         // Get single recipe slug
         $recipe_slug = $_GET['slug'];
-        $sql = "SELECT * FROM recipe WHERE slug='$recipe_slug' AND published=true";
+        $sql = "SELECT * FROM recipe WHERE slug like '%$search%' AND published=true";
         $result = mysqli_query($conn, $sql);
 
         // fetch query results as associative array.
         $recipe = mysqli_fetch_assoc($result);
-        if ($recipe) {
+        if (isset($_GET['slug'])){
                 // get the category to which this recipe belongs
                 $recipe['category'] = getRecipeCategory($recipe['id']);
         }

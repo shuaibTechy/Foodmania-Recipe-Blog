@@ -38,7 +38,7 @@ float: left;
 
 
 body {
-    background-image: url('../images/cck5btal.png'); /* Replace with your background image path */
+    background-image: url('../images/cck5btal.png'); 
     background-size: cover;
     background-repeat: no-repeat;
     font-family: sans-serif;

@@ -16,8 +16,23 @@
        
         <div class="container">
                 <!-- navbar -->
-                <?php include(ROOT_PATH .'/includes/nav.php') ?>
-                <?php include(ROOT_PATH .'/includes/banner.php') ?>
+                <!-- navbar -->
+ <div>
+ <div class="logo_div">
+ <img src="static\images\foodmania_logo.png" alt="" id="logo">
+ </div>
+ 
+ <div class="navbar">
+                        
+                        <ul>
+                        <li><a href="<?php echo BASE_URL . '/logout.php'; ?>" class="logout-btn">Home</a></li>
+                          <li><a href="about_us.php">About Us</a></li>
+                          <li><a href="allrecipe.php">Your Recipe</a></li>
+                          <li><a href="contact.php">Contact</a></li>
+                        </ul>
+                </div>
+</div>
+                <!-- // navbar -->
 
                 <!-- Page content -->
                 <div class="content">
@@ -38,12 +53,12 @@
         <div class="post" style="margin-left: 0px;">
                 <img src="<?php echo BASE_URL . '/static/images/' . $recipe['image']; ?>" class="post_image" alt="">
         <!-- Added this if statement... -->
-                <?php if (isset($recipe['category']['cat_name'])): ?>
+                <?php if (isset($recipe['category']['name'])): ?>
                         
                         <a 
-                href=" filtered_recipes.php?category=' <?php echo $recipe['category']['cat_id'] ?>"
+                href=" filtered_recipes.php?category=' <?php echo $recipe['category']['id'] ?>"
                                 class="btn category">
-                                <?php echo $recipe['category']['cat_name'] ?>
+                                <?php echo $recipe['category']['name'] ?>
                         </a>
                 <?php endif ?>
                 
@@ -61,23 +76,11 @@
 
 
                 </div>
-<h2> Featured recipe</h2>
 
 
 
-<div class="scrolling-container">
-  <img src="static\images\scrolling1.png" alt="Image 1">
-  <img src="static\images\scrolling2.png" alt="Image 2">
-  <img src="static\images\scrolling3.png" alt="Image 3">
-  <img src="static\images\scrolling4.png" alt="Image 4">
-  <img src="static\images\scrolling5.png" alt="Image 5">
-  <img src="static\images\scrolling6.png" alt="Image 6">
-  <img src="static\images\scrolling7.png" alt="Image 7">
-  <img src="static\images\scrolling8.png" alt="Image 8">
-  <img src="static\images\scrolling9.png" alt="Image 9">
-  <img src="static\images\scrolling10.png" alt="Image 10">
 
-  </div>
+
 
                 <!-- <h2> coming soon....</h2> -->
                 <!-- // Page content -->

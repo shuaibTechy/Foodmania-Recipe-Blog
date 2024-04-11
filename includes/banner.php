@@ -30,7 +30,7 @@
                             You would be blown away with what is in stock here <br>
                             You want to give a try <br>
                                 <span>~Wait no more</span></p> <br>
-                        <a href="register.php" class="btn">Join us! </a>      
+                        <a href="allrecipe.php" class="btn" style= "width: 200px;">Explore Recipes! </a>      
                 </div>
         </div>
 <?php } ?>

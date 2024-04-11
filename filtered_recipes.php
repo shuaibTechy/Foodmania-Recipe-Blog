@@ -18,10 +18,12 @@
 <!-- content -->
 <div class="content">
         <h2 class="content-title">
-                Recipes on <u><?php echo getCategoryNameById($category_id); ?></u>
+                Recipes on <u><?php $category_id = 0;
+                echo getCategoryNameById($category_id); ?></u>
         </h2>
         <hr>
-        <?php foreach ($recipes as $recipe): ?>
+        <?php $recipes = array();
+        foreach ($recipes as $recipe): ?>
                 <div class="post" style="margin-left: 0px;">
                         <img src="<?php echo BASE_URL . '/static/images/' . $recipe['image']; ?>" class="post_image" alt="">
                         <a href="single_recipe.php?recipe-slug=<?php echo $recipe['slug']; ?>">

@@ -13,7 +13,7 @@
                         </div>
                 <?php endif ?>
                         <ul>
-                          <li><a class="active" href="C:\xampp\htdocs\Foodmania-Recipe-Blog\logout.php">Home</a></li>
+                          <li><a class="active" href="<?php echo BASE_URL . '/logout.php'; ?>">Log out</a></li>
                           <li><a href="#about">About Us</a></li>
                           <li><a href="#recipe">Your Recipe</a></li>
                           <li><a href="#">Chef's Profile</a></li>

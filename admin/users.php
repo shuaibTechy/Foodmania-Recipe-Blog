@@ -7,16 +7,22 @@
 ?>
 <?php include(ROOT_PATH . '/admin/includes/header.php'); ?>
         <title>Admin | Manage users</title>
+<style>
+    body {
+      background-image: url("../static/images/scrolling13.png"); background-size: cover; background-repeat: no-repeat; height: 100%;
+    }
+</style>
 </head>
-<body>
+<div >
+<body >
         <!-- admin navbar -->
         <?php include(ROOT_PATH . '/admin/includes/nav.php') ?>
-        <div class="container content">
+        <div class="container content"  >
                 <!-- Left side menu -->
                 <?php include(ROOT_PATH . '/admin/includes/menu.php') ?>
                 <!-- Middle form - to create and edit  -->
                 <div class="action">
-                        <h1 class="page-title">Create/Edit Admin User</h1>
+                        <h1 class="page-title">Create Admin</h1>
 
                         <form method="post" action="<?php echo BASE_URL . 'admin/users.php'; ?>" >
 
@@ -59,7 +65,7 @@
                         <?php else: ?>
                                 <table class="table">
                                         <thead>
-                                                <th>N</th>
+                                                <th>S/N</th>
                                                 <th>Admin</th>
                                                 <th>Role</th>
                                                 <th colspan="2">Action</th>
@@ -91,5 +97,6 @@
                 </div>
                 <!-- // Display records from DB -->
         </div>
+</div>
 </body>
 </html>
